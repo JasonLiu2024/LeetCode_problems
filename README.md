@@ -1,6 +1,8 @@
 # About:
 In this repository, I record my accepted solutions to LeetCode problems.
 I am doing LeetCode problems because my Data Structure and Algorithm course is theoretical in nature. Coding problems are a good way for me to practice using DS & A concepts and figure out what I don't understand.
+->some background: I was in CSE247R, a coding seminar class paired with CSE 247 (Data Structures and Algorithms). Every Sunday in the Fall 2022 semester, I work with my partner Luis on coding questions for two hours. 
+Taking the class made me realize that filling in given framework, which is the computer scienc homework I am used to working on, is very different from writing up code from scratch! We found that they come from LeetCode, so I decided to learn more actively by finding DS & A problems there!
 
 # Files (updating):
 1. TwoSum_v1.java
