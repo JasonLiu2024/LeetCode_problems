@@ -49,3 +49,10 @@ https://leetcode.com/problems/3sum/
 However, by reading the solution, I found that this can be done using back-tracking. This is a concept I am not familiar with, so I am working on it now.
 https://leetcode.com/problems/letter-combinations-of-a-phone-number/
 
+9. (19)rmNthNodeList.java
+
+(Dec 08, 2022) I used a brute force method. I iterate through the list once to get its length. Next, I use length to calculate the index of what I want to remove. In practice, this is the node BEFORE what I want to remove, since I 'remove' a node from list by changing .next connections of the parent.
+NOTE: list is accessed from head. If I operate on head directly e.g. iterate, that changes the list when I return head.
+To edit list, clone the head node and use that (and that.next) to make changes.
+https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/
+
