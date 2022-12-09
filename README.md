@@ -56,3 +56,16 @@ NOTE: list is accessed from head. If I operate on head directly e.g. iterate, th
 To edit list, clone the head node and use that (and that.next) to make changes.
 https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/
 
+10 (20)validParenthesis.java
+
+(Dec 08, 2022) Most important idea is to use stack. Reason for stack: when we got LHS parenthesis, entire list of parenthesis is fine ONLY IF we got a RHS parenthesis to pair. But, between parenthesis, there is variable amount of other parenthesis. Since earlier parenthesis MUST either ENTIRELY INCLUDE or NOT OVERLAP with later parenthesis (i.e. [{]} NOT ok; BUT: []{} ok AND [{}] ok). 
+TLDR: valid parenthesis strings are (locally) symmetric. It's NOT globally symmetric, so we cannot use array/index method easily.
+How to exploit local symmetry: 
+suppose parenthesis pairs A and B form continous part of given string such that B is INSIDE A. If B is valid, NO need to check B. ONLY need to check A. -> OK to ditch B when checked. -> if B NOT valid, entire string of parenthesis is invalid
+Also, we know that local symmetry violators == parenthesis part that do NOT have pair
+TLDR: we are finding parenthesis pairs. When some pair P is clear, P can be removed (since it's Not going to be local sym violator)
+So we use stack: ONLY pop IF: current peak() result is LHS parenthesis, current character in given array is the RHS parenthesis (of That LHS parenthesis).
+If we got a violator, it's going to get left be hand (Not-cancelled-out) After we went through eveyrthing in the list.
+https://leetcode.com/problems/valid-parentheses/description/
+
+
