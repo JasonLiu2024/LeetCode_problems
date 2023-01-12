@@ -1,0 +1,23 @@
+class Solution {
+    public List<String> generateParenthesis(int n) {
+        String entry = "";
+        List<String> re = new LinkedList<String>();
+        backtrack(re, 0, 0, n, entry);
+        return re; 
+    }
+    public void backtrack(List<String> re, int nL, int nR, int pairs, String entry){
+        char left = '(';
+        char right = ')';
+        if(entry.length() == pairs * 2){
+            re.add(entry);
+            return;
+        }else{
+            if(nL < pairs){
+                backtrack(re, nL + 1, nR, pairs, entry + left);
+            }
+            if(nR < nL){
+                backtrack(re, nL, nR + 1, pairs, entry + right);
+            }
+        }
+    }
+}
