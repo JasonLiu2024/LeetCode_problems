@@ -80,3 +80,12 @@ Iterative, use Recursion steps iteratively, BUT, u need MANUAL Head & Tail nodes
 Iterative better, because less memory used.
 https://leetcode.com/problems/merge-two-sorted-lists/description/
 
+12. enumerate Valid parenthesis combo, given pair count
+
+(Jan 11, 2022) use Backtracking (which uses Recursion)
+TLDR: build Valid parenthesis, add em to list of Valid enumeration
+STOP condition: entry length at max (entry length = pair count * 2)
+Add condition: 
+  1) add Left parenthesis if total Left parenthesis within limit (aka pair count)
+  2) add Right parenthesis if total right parenthesis within limit (aka Left parenthesis count, bc more right than left == NO Valid)
+https://leetcode.com/problems/generate-parentheses/description/
