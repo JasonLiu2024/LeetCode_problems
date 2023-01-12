@@ -69,6 +69,7 @@ If we got a violator, it's going to get left be hand (Not-cancelled-out) After w
 https://leetcode.com/problems/valid-parentheses/description/
 
 11. Merge 2 sorted lists
+
 (Jan 11, 2022) For list1 = {A, B, C, D}, list1 = A (ref to list == head node of list). A.next = B.
 If u do list1 = list1.next, list1 is now {B, C, D}
 Recursion: make NEW list to return (rather than messing w/ input lists).
