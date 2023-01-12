@@ -68,4 +68,10 @@ So we use stack: ONLY pop IF: current peak() result is LHS parenthesis, current 
 If we got a violator, it's going to get left be hand (Not-cancelled-out) After we went through eveyrthing in the list.
 https://leetcode.com/problems/valid-parentheses/description/
 
+21 Merge 2 sorted lists
+(Jan 11, 2022) For list1 = {A, B, C, D}, list1 = A (ref to list == head node of list). A.next = B.
+If u do list1 = list1.next, list1 is now {B, C, D}
+Recursion: make NEW list to return (rather than messing w/ input lists).
+  next, take smaller head node of two lists = head of new list to be return
+https://leetcode.com/problems/merge-two-sorted-lists/description/
 
