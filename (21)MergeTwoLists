@@ -10,7 +10,23 @@
  */
 class Solution {
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-        if(list1 == null){return list2;}
+        //V2: Iterative <- more code, BUT: memory efficient
+        ListNode head = new ListNode(); //NO can just declare head.
+        ListNode tail = head;  //node Tail must equal to SOMETHING
+        while(list1 != null && list2 != null){
+            if(list1.val < list2.val){
+                tail.next = list1; //keep Head node empty
+                list1 = list1.next; //so we can reference ENTIRE list w/ Head.next
+            }else{
+                tail.next = list2;
+                list2 = list2.next; //when we use head from list, dump it
+            }
+            tail = tail.next; //TLDR: manual tail (bc ListNode class NO got tail...)
+        } //after While loop, either list1 OR list2 empty
+        tail.next = list1 == null ? list2 : list1; //this means: if list1 == null, use list2. else, list1
+        return head.next;
+        //V1: Recursion <- it's bad, because takes too much memory
+        /*if(list1 == null){return list2;}
         if(list2 == null){return list1;}
         ListNode head;
         if(list1.val < list2.val){
@@ -21,6 +37,6 @@ class Solution {
             list2 = list2.next;
         }
         head.next = mergeTwoLists(list1, list2);
-        return head;
+        return head;*/
     }
 }
