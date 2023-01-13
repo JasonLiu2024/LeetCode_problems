@@ -101,3 +101,11 @@ from 11., we know how to merge 2 sorted lists. So we can use divide-n'-conquer m
   e.g. first round, we merge (index) 0-1, 2-3, 4-5, 6-7 <-Note: how we need to increment loop B index by i += BatchSize * 2, so we do NOT get 0-1 And Then 1-2!
   second round, we be mergine 0-2, 4-6, 8-10 SKIPping over lists indexed at 1, 3, 5 ect. bc we Already used them for merging
 https://leetcode.com/problems/merge-k-sorted-lists/description/
+
+14. swap every 2 nodes of list
+Iterative method, use MANUAL Tail for the SWAPped section of the list, so we can put crosshair on the pair we going to swap
+  here, manual tail == node B4 the pair of nodes we gonna Swap
+  use head to move stuff forward
+  use empty node First to access entire lists (for return)
+  after swapping a pair, connect New head to the Manual Tail 
+https://leetcode.com/problems/swap-nodes-in-pairs/description/
