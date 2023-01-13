@@ -89,3 +89,15 @@ Add condition:
   1) add Left parenthesis if total Left parenthesis within limit (aka pair count)
   2) add Right parenthesis if total right parenthesis within limit (aka Left parenthesis count, bc more right than left == NO Valid)
 https://leetcode.com/problems/generate-parentheses/description/
+
+13. merge K sorted lists
+from 11., we know how to merge 2 sorted lists. So we can use divide-n'-conquer method
+  tldr: repeatedy divide lists into groups of 2, then merge
+  Note: it's OK if k != n^2. If we end up w/ 1 list, tis exactly what we want. If we end up w/ 2 lists, it reduces to 1 list aka Still what we want
+  to Divide, use variable Batchsize, starting at 1. Given list 'lists', containing lists we wanna merge, when we merge lists[1] and lists[2], we store result in lists[1] BUT we do NOT delete what's in lists[2] BUT we do NOT want to Reuse that lists[2]
+   TLDR, using BatchSize, we skip over what we do NOT want
+  use loop A to manage BatchSize, increasing by factor of 2
+  use loop B, inside loop A, to manage PAIRS of lists we wanna merge
+  e.g. first round, we merge (index) 0-1, 2-3, 4-5, 6-7 <-Note: how we need to increment loop B index by i += BatchSize * 2, so we do NOT get 0-1 And Then 1-2!
+  second round, we be mergine 0-2, 4-6, 8-10 SKIPping over lists indexed at 1, 3, 5 ect. bc we Already used them for merging
+https://leetcode.com/problems/merge-k-sorted-lists/description/
