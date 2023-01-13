@@ -1,0 +1,27 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode swapPairs(ListNode head) {
+        ListNode first = new ListNode();
+        first.next = head;
+        ListNode prev = first; //manual tail, aka node B4 the two we wanna SWAP rn
+        while(head != null && head.next != null){
+            ListNode n1 = head; //our Iterator is head
+            ListNode n2 = head.next;
+            prev.next = n2; //connect RESULT of swap to manual tail, so list stay connected
+            n1.next = n2.next;
+            n2.next = n1;
+            prev = n1; //cuz now, n1 is the Number 2 node
+            head = n1.next;
+        }
+        return first.next;
+    }
+}
