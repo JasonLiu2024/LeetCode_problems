@@ -91,6 +91,7 @@ Add condition:
 https://leetcode.com/problems/generate-parentheses/description/
 
 13. merge K sorted lists
+
 from 11., we know how to merge 2 sorted lists. So we can use divide-n'-conquer method
   tldr: repeatedy divide lists into groups of 2, then merge
   Note: it's OK if k != n^2. If we end up w/ 1 list, tis exactly what we want. If we end up w/ 2 lists, it reduces to 1 list aka Still what we want
@@ -103,6 +104,7 @@ from 11., we know how to merge 2 sorted lists. So we can use divide-n'-conquer m
 https://leetcode.com/problems/merge-k-sorted-lists/description/
 
 14. swap every 2 nodes of list
+
 Iterative method, use MANUAL Tail for the SWAPped section of the list, so we can put crosshair on the pair we going to swap
   here, manual tail == node B4 the pair of nodes we gonna Swap
   use head to move stuff forward
