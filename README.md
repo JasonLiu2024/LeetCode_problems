@@ -116,3 +116,10 @@ https://leetcode.com/problems/swap-nodes-in-pairs/description/
 
 (I think) this means for K = 4, you want ABCDE -> [ABCD]E -> [DCBA]E -> DCBAE
 https://leetcode.com/problems/reverse-nodes-in-k-group/description/
+
+16. next larger permutation, by lexicographical order
+
+next = immediate e.g. next larger than X = smallest possible, that's larger than X
+lexicographical order = size difference, when u turn string no #s to actual no. e.g., 1, 3, 2 > 1, 2, 3, by lexicographical number, because 132 > 123 (it's THAT simple...)
+https://leetcode.com/problems/next-permutation/description
+
