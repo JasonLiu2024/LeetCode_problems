@@ -1,0 +1,52 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode reverseKGroup(ListNode head, int k) {
+        ListNode cur = head;
+        ListNode groupTail = null; //manual tail, for group of K getting swapped
+        ListNode first = null; //head node, for processed list
+        while(cur != null){ //for A...EF, need swap A&E
+            int count = 0;
+            cur = head;
+            while(count < k && cur != null){ //git group of K
+               cur = cur.next;
+               count = count + 1;} 
+            //found our E
+            if(count == k){//found group of K
+                //swap it, record head of the swapped version
+                ListNode groupHead = this.reverseFirstK(head, k);
+
+                if(first == null){
+                    first = groupHead;} 
+                //connect swapped group to Next group, of the big list
+                if(groupTail != null){ 
+                    groupTail.next = groupHead;}
+                groupTail = head; //groupTail is now A, 
+                head = cur; //head(A) is now E, so (A=E)...AF, head is at END of swapped group
+            }
+        }
+        if(groupTail != null){
+            groupTail.next = head;}
+        return first == null ? head : first; //if first is null (nothing swapped), return head aka list as is
+    }
+    public ListNode reverseFirstK(ListNode head, int k){
+        ListNode n1 = null;
+        ListNode cur = head;
+        while(k > 0){ //given ABCD, cur = A
+            ListNode next = cur.next; //clone B
+            cur.next = n1; //B is n1, A n1 C D
+            n1 = cur; //n1 is now A, A A C D
+            cur = next; //put B in cur's place, B A C D
+            k = k - 1;
+        }
+        return n1; //head of processed list
+    }
+}
