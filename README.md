@@ -111,3 +111,8 @@ Iterative method, use MANUAL Tail for the SWAPped section of the list, so we can
   use empty node First to access entire lists (for return)
   after swapping a pair, connect New head to the Manual Tail 
 https://leetcode.com/problems/swap-nodes-in-pairs/description/
+
+15. swap groups of K nodes, repeat for a list
+
+(I think) this means for K = 4, you want ABCDE -> [ABCD]E -> [DCBA]E -> DCBAE
+https://leetcode.com/problems/reverse-nodes-in-k-group/description/
