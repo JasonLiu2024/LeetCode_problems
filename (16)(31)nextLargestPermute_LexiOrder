@@ -1,0 +1,36 @@
+class Solution {
+    public void nextPermutation(int[] nums) {
+        int len = nums.length;
+        int left = len - 1; //idx for last arr entry
+        //find MOST signif digit, where swap (for Bigger #) can happen
+        while(left >= 1 && nums[left - 1] >= nums[left]){
+            left = left - 1;} //left = 1st no. (from RHS) thats Smaller than RHS neighbor
+        left = left - 1; //ACTUAL value of left we wanna use
+        //entire list is big<small, so return All entries small->big, by mirror
+        if(left < 0){
+            mirror(nums, 0, len - 1); 
+            return;}
+        //first part of list is keeper; we wanna swap nums[left], and...
+        int right = len - 1;
+        //nums[right] is 1st no. (from RHS) thats Bigger than nums[left]
+        while(right > left && nums[left] >= nums[right]){
+            right = right - 1;}
+        //time to swap nums[right] & nums[left]
+        swap(nums, left, right);
+        //minimize Less signif no.s, After ur (LHS-most) swap result aka mirror
+        mirror(nums, left + 1, len - 1);
+        return;
+    }
+    public void swap(int[] nums, int a, int b){
+        int temp = nums[b];
+        nums[b] = nums[a];
+        nums[a] = temp;
+    }
+    public void mirror(int[] nums, int a, int b){
+        while(a < b){
+            swap(nums, a , b);
+            a = a + 1;
+            b = b - 1;
+        }
+    }
+}
