@@ -1,0 +1,25 @@
+class Solution {
+    public int search(int[] nums, int target) {
+        //Augmented Binary Search
+        int l = nums.length; int st = 0; int ed = l - 1;
+        while(st <= ed){
+            int mid = st + (ed - st)/2;
+            if(nums[mid] == target){
+                return mid;
+            }else if(nums[mid] >= nums[st]){
+                if(target >= nums[st] && target < nums[mid]){
+                    ed = mid - 1;}
+                else{
+                    st = mid + 1;
+                }
+            }else{ //nums[mid] < nums[start]
+                if(target <= nums[ed] && target > nums[mid]){
+                    st = mid + 1;}
+                else{
+                    ed = mid - 1;
+                }
+            }
+        }
+        return -1;
+    }
+}
