@@ -130,3 +130,14 @@ TLDR: count no.left & no.right parenthesis. AND: check from BOTH Forward & Backw
 Record length condition: left = right (no. of brackets, by types left & right)
 Start NEW record condition: right > left (this is in FWD case; opposite condition for Bwd case!), cus for Fwd dir, if you got Total 1x ( and 2x )) at ANY point, its NOT possible to have valid parenthesis string!
 https://leetcode.com/problems/longest-valid-parentheses/description
+
+18. search, Sorted array is Rotated
+
+rotated = entries shifted by some element. BUT, here we DON'T know how many entries array is shifted by
+Fastest search in Sorted arr is binary. BUT, only PART of shifted sorted array is sorted
+TLDR: BS BUT, change conditions to find SORTed part of array if possible
+  so instead of doing 'target vs mid entry', we do 'start entry vs mid entry', to determine which part of array is shifted
+  e.g., if arr is skewed to LHS, we got mid entry > left entry, bc mid entry is within the Sorted part (in this case, equivalent to half, bc Binary Search) of the shifted arr; opposite for skewed to RHS
+  for LHS skewed arr, if target e [start entry, mid entry], we go for that part. if not, that's alright, we go for the UN sorted part of the array
+Doing regular Binary Search conditions NO work, cuz it assumes array is sorted aka SKIPs over nums we wanna look at, due array being Only PARTly sorted (due to rotation aka shifting)
+https://leetcode.com/problems/search-in-rotated-sorted-array/description
