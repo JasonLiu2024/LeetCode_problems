@@ -123,3 +123,10 @@ next = immediate e.g. next larger than X = smallest possible, that's larger than
 lexicographical order = size difference, when u turn string no #s to actual no. e.g., 1, 3, 2 > 1, 2, 3, by lexicographical number, because 132 > 123 (it's THAT simple...)
 https://leetcode.com/problems/next-permutation/description
 
+17. max valid parenthesis string
+
+TLDR: count no.left & no.right parenthesis. AND: check from BOTH Forward & Backward directions, choose max result;
+->Fwd direction MISS ((() case; whereas Bwd direction MISS ()))) case!
+Record length condition: left = right (no. of brackets, by types left & right)
+Start NEW record condition: right > left (this is in FWD case; opposite condition for Bwd case!), cus for Fwd dir, if you got Total 1x ( and 2x )) at ANY point, its NOT possible to have valid parenthesis string!
+https://leetcode.com/problems/longest-valid-parentheses/description
