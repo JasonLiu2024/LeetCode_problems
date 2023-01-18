@@ -150,3 +150,14 @@ TLDR: augmented Binary Search
   for LHS, if nums[mid - 1] ALSO == target, mid NOT LHS bound; ALSO, if mid = start i.e. mid = start = end i.e. target repeats x1 Only, or repeate start from LHS of Entire array; If these conditions NO met, do ed = mid - 1, so we ONLY go LHS (cuz we looking for LHS bound here!)
   for RHS, do opposite day.
 https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/description
+
+20. search, Sorted array, index to insert Target (position, if present; position by sort, if NO present)
+
+TLDR: augmented Binary Search
+  for NO found, return LHS. for nums.length = l
+  1 if target > max entry, ur LAST state is: mid = st = ed = l - 1; u do st = mid + 1 = l + 1, and loop terminates. l + 1 is position to insert target
+  2 if target < min entry, ur LAST state is: mid = st = ed = 0; ur do ed = mid - 1 = -1, and loop terminates; st is STILL @ 0, which is position to insert target
+  3 if target's correct position is btwn two entries, LAST state is mid = st = ed = (dat correct position - 1).
+  (I think that) Binary Search ends @ MAX entry in array that's <= target; so in case 3, u get st = mid + 1 = dat correct position
+https://leetcode.com/problems/search-insert-position/description
+https://leetcode.com/problems/search-insert-position/description
