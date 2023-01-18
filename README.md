@@ -141,3 +141,12 @@ TLDR: BS BUT, change conditions to find SORTed part of array if possible
   for LHS skewed arr, if target e [start entry, mid entry], we go for that part. if not, that's alright, we go for the UN sorted part of the array
 Doing regular Binary Search conditions NO work, cuz it assumes array is sorted aka SKIPs over nums we wanna look at, due array being Only PARTly sorted (due to rotation aka shifting)
 https://leetcode.com/problems/search-in-rotated-sorted-array/description
+
+19. search, Sorted array, index range for Repeated targets
+
+TLDR: augmented Binary Search
+  1 git ur nums[mid] == target
+  2 git LHS & RHS bound for Repeated target values, SEPARATELY
+  for LHS, if nums[mid - 1] ALSO == target, mid NOT LHS bound; ALSO, if mid = start i.e. mid = start = end i.e. target repeats x1 Only, or repeate start from LHS of Entire array; If these conditions NO met, do ed = mid - 1, so we ONLY go LHS (cuz we looking for LHS bound here!)
+  for RHS, do opposite day.
+https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/description
