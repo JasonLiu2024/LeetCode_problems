@@ -1,0 +1,31 @@
+class Solution {
+    public int[] searchRange(int[] nums, int target) {
+        int lhs = getBound(nums, target, true);
+        if(lhs == -1) return new int[]{-1, -1}; //if LHS bound NO got, NO exist RHS bound!
+        int rhs = getBound(nums, target, false);
+        return new int[]{lhs, rhs};
+    }
+    public int getBound(int[] nums, int target, boolean flag){
+        //flag true = find LHS bound; flag false = find RHS bound
+        int l = nums.length; int st = 0; int ed = l - 1;
+        while(st <= ed){
+            int mid = st + (ed - st)/2; //equivalent to: mid = (st + ed)/2
+            if(nums[mid] == target){
+                if(flag == true){//need LHS bound
+                    if(st == mid || nums[mid - 1] != target){
+                        return mid;
+                    }else{ed = mid - 1;}
+                }else{//need RHS bound
+                    if(ed == mid || nums[mid + 1] != target){
+                        return mid;
+                    }else{st = mid + 1;}
+                }
+            }else if(nums[mid] > target){
+                ed = mid - 1;
+            }else{
+                st = mid + 1;
+            }
+        }
+        return -1;
+    }
+}
