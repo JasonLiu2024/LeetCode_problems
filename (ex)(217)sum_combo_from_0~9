@@ -1,0 +1,27 @@
+class Solution {
+    protected void backtrack(List<List<Integer>> list, int k, int remain, int next, LinkedList<Integer> entry){
+        if(remain == 0 && entry.size() == k){
+            //remain = value left TILL sum reached
+            list.add(new ArrayList<Integer>(entry)); //make DEEP copy, to keep current result
+            return;
+        }else if(remain < 0 || entry.size() == k){
+            //too many #s in entry
+            return;
+        }
+        for(int i = next; i < 9; i++){
+            entry.add(i + 1);
+            //when u add i+1 to entry, sum of entry is i + 1 CLOSER to target sum aka remain
+            //since u tried out i + 1, time to try otr number, BUT: start AFTER i + 1 in list of 0~9    
+            //this avoids repeats
+            backtrack(list, k, remain - (i + 1), i + 1, entry);
+            entry.removeLast(); //need to go back, to explore OTR combinations on same lvl
+        }
+    }
+    public List<List<Integer>> combinationSum3(int k, int n) {
+        //use k #s, sum to n
+        LinkedList<Integer> entry = new LinkedList<Integer>();
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        this.backtrack(result, k, n, 0, entry);
+        return result;
+    }
+}
