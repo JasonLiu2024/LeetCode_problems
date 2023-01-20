@@ -1,0 +1,22 @@
+class Solution {
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        LinkedList<Integer> entry = new LinkedList<Integer>();
+        this.backtrack(result, entry, candidates, 0, target);
+        return result;
+    }
+    protected void backtrack(List<List<Integer>> list, LinkedList<Integer> entry, int[]candidates, int first, int remain){
+        //first = index (in candidates) for 1st # in entry
+        if(remain == 0){
+            list.add(new ArrayList<Integer>(entry));
+            return;
+        }else if(remain < 0){
+            return;
+        }
+        for(int i = first; i < candidates.length; i++){
+            entry.add(candidates[i]);
+            this.backtrack(list, entry, candidates, i, remain - candidates[i]);
+            entry.removeLast();
+        }
+    }
+}
