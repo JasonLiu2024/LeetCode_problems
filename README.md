@@ -160,4 +160,13 @@ TLDR: augmented Binary Search
   3 if target's correct position is btwn two entries, LAST state is mid = st = ed = (dat correct position - 1).
   (I think that) Binary Search ends @ MAX entry in array that's <= target; so in case 3, u get st = mid + 1 = dat correct position
 https://leetcode.com/problems/search-insert-position/description
-https://leetcode.com/problems/search-insert-position/description
+
+ex. (217) combination of n numbers, sums to k. using numbers 0 ~ 9
+
+TLDR: backtrack, cuz: we looking for ALL combinations
+Backtrack method: use Remain, initialize to k; When add #, do Remain - #; use Next to keep track of next # to add to combination (on same STEP)
+  to avoid repeat # in ea combination, choos （next + 1） from list
+  ea time we incl. number A, do backtrack(remain - A, next = A). <-we did (next + 1) instead of just next, so in this next recursion, we get OTR number B
+  e.g. first, we trying out #A_ (_being empty aka no # there yet!), recursion takes us to #AB (For loop Starts from next + 1, so ONLY can choose B, NO can choose A!) <- make sure we try out ALL vals at SAME position of combination
+  Use for loop to try out All 0~9 for combination
+  BUT, do entry.removeLast() to remove A After calling recursion (so that u free up space for B, in A's current position! i.e. trying out #B_ now!)
