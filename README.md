@@ -170,3 +170,13 @@ Backtrack method: use Remain, initialize to k; When add #, do Remain - #; use Ne
   e.g. first, we trying out #A_ (_being empty aka no # there yet!), recursion takes us to #AB (For loop Starts from next + 1, so ONLY can choose B, NO can choose A!) <- make sure we try out ALL vals at SAME position of combination
   Use for loop to try out All 0~9 for combination
   BUT, do entry.removeLast() to remove A After calling recursion (so that u free up space for B, in A's current position! i.e. trying out #B_ now!)
+https://leetcode.com/problems/combination-sum-iii/description
+  
+21. combination using numbers in given array, allow repeats, sums to k
+  
+TLDR: backtrack, since this is combination problem
+Backtrack method: use Remain to keep track of sum
+  The drill: add A to entry, backtrack(), entry.removeLast()
+  (compare to ex 217 above:) we NO doing i+1 WITHIN for loop (NOT talking bout i++ in the loop frame!), cuz its OK we got repeat no.s, we want recursion call to start AT current no. in array. 
+  BUT, once we done w/ combination starting w/ A, we NO use A again! e.g. exhausted All combos that's A###, when we doing B###, those #s NO can be A! (otherwise, we     get repeated combos aka repeat results aka WRONG)
+https://leetcode.com/problems/combination-sum/description/
